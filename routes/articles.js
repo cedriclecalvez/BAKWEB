@@ -18,7 +18,6 @@ cloudinary.config({
 
 router.post('/create-article', async function(req, res, next) {
   console.log("hello1 req query --------------create article",req.body)
-
     let newArticle = new articleModel({
         title:req.body.title,
         description:req.body.description,
@@ -30,13 +29,14 @@ router.post('/create-article', async function(req, res, next) {
         subcategory:req.body.subcategory,
         state:req.body.state,
         sellerToken:req.body.sellerToken,
-        images:JSON.parse(req.body.images),
+        images:req.body.images,
         creationDate:new Date(),
         isVisible:true
       })
     
     let result = false;
     saveArticle = await newArticle.save()
+    console.log("saveArticle --------------saveArticle",saveArticle)
 
     if(saveArticle){
     result = true

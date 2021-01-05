@@ -1,15 +1,13 @@
-
-import {Navbar, Row} from 'reactstrap'
-import SignInUp from './Component/SignInUp'
-import HomePage from './Component/HomePage'
-import SellScreen from './Component/SellScreen'
-import FilterScreen from './Component/FilterScreen'
+import SignInUp from './ScreenSignInUp'
+import HomePage from './ScreenHomePage'
+import ScreenSell from './ScreenSell'
+import ArticlesSell from './ScreenArticlesSell'
+import ArticlesBought from './ScreenArticlesBought'
+import InfoUser from './ScreenUserInfo'
+import result from './ScreenResultSearch'
+import Product from './ScreenProductSelected'
+import Filters from './ScreenFilter'
 import NavigationBar from'./Component/navbar'
-import ArticlesSell from './Component/ArticlesSell'
-import ArticlesBought from './Component/ArticlesBought'
-import informationUser from './Component/informationUser'
-import result from './Component/Resultsearch'
-import Product from './Component/productSelected'
 
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 
@@ -22,25 +20,22 @@ const store = createStore(combineReducers({token,subcat}))
 
 function App() {
   return (
-   <Provider store={store}>
-    
+    <Provider store={store}>
       <Router>
-        <Switch>
-        
-        <Route  path="/"  component={SignInUp} exact/>
-        <Route  path="/Accueil" component={HomePage} exact />
-        <Route  path="/Vente" component={SellScreen} exact />
-        <Route  path='/Recherche' component={FilterScreen} />
-        <Route  path='/Vendu' component={ArticlesSell} />
-        <Route  path='/Achete' component={ArticlesBought} />
-        <Route  path='/information' component={informationUser} />
-        <Route  path='/resultat' component={result} />
-        <Route  path='/produit' component={Product} />
-        <NavigationBar/>
+        <Switch>  
+          <Route  path="/"  component={SignInUp} exact/>
+          <Route  path="/Accueil" component={HomePage} exact />
+          <Route  path="/Vendre" component={ScreenSell} exact />
+          <Route  path='/Recherche' component={Filters} />
+          <Route  path='/Ventes' component={ArticlesSell} />
+          <Route  path='/Achats' component={ArticlesBought} />
+          <Route  path='/Information' component={InfoUser} />
+          <Route  path='/Resultat' component={result} />
+          <Route  path='/Produit' component={Product} />
+          <NavigationBar/>
        </Switch>
       </Router>
-
-  </Provider>
+    </Provider>
   );
 }
 

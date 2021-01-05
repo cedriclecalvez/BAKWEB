@@ -1,17 +1,12 @@
 import React from 'react';
-import {
-  Card, Button, CardImg, CardTitle, CardText, CardDeck,
-  CardSubtitle, CardBody
-} from 'reactstrap';
-import Navigation from './navbar'
+import {Card, Button, CardImg, CardTitle, CardText, CardDeck,CardSubtitle, CardBody} from 'reactstrap';
+import Navigation from './Component/navbar'
 
-export default function Product (props) {
+export default function ScreenProductSelected (props) {
 
   return (
     <div>
-
     <Navigation/>
-    
     <CardDeck>
       <Card>
         <CardImg top width="400px" src="../logo192.png" alt="Card image cap" />
@@ -22,7 +17,7 @@ export default function Product (props) {
           <Button>Acheter</Button>
         </CardBody>
       </Card>
-      </CardDeck> 
-      </div>
-      )
-      }
+    </CardDeck> 
+    </div>
+  )
+}

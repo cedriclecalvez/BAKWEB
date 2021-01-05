@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { InputGroup, InputGroupAddon, InputGroupText, Input, Button } from 'reactstrap';
-import '../App.css'
-import Navigation from './navbar'
+import './App.css'
+import Navigation from './Component/navbar'
 import {NavLink} from 'reactstrap';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 
- function FilterScreen(props) {
+ function ScreenFilter(props) {
 
   const [DisplaySubCat, setDisplaySubCat] = useState([]);
 
@@ -133,7 +133,7 @@ onClick={() =>{props.onSubCatSelected(subCatName);setGoToResultScreen(true)}}
  >Rechercher</Button></div>
 }
 if(goToResultScreen==true){
-  return <Redirect to='/resultat'/>
+  return <Redirect to='/Resultat'/>
 }
 
   return (
@@ -248,4 +248,4 @@ function mapDispatchToProps(dispatch) {
 export default connect(
   null,
   mapDispatchToProps
-)(FilterScreen);
+)(ScreenFilter);

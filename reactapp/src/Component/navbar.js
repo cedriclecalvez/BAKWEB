@@ -25,10 +25,8 @@ const NavsBar = (props) => {
     <div>
       <Navbar color="light" light expand="md">
         <NavbarBrand>
-            <img style={{width:'80px', margin:'5px',cursor:'pointer', borderRadius:5 ,marginRight:60, marginLeft:30}} src="./Logo_BAK(2).jpg"/>
-        </NavbarBrand>
-        {/* <NavbarBrand href="/" style={{color: 'rgba(214, 162, 232,1.0)'}}>S'inscrire | Se connecter</NavbarBrand> */}
-        
+            <Link to="/Acceuil"><img style={{width:'80px', margin:'5px',cursor:'pointer', borderRadius:5 ,marginRight:60, marginLeft:30}} src="./Logo_BAK(2).jpg"/></Link>
+        </NavbarBrand>        
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
 
@@ -42,7 +40,7 @@ const NavsBar = (props) => {
               </Button>
               <NavItem>
                 <NavLink>
-                <Link style={{color: 'rgba(214, 162, 232,1.0)',marginRight:60}} to="/Accueil">Acceuil</Link>
+                  <Link style={{color: 'rgba(214, 162, 232,1.0)',marginRight:60}} to="/Accueil">Acceuil</Link>
                 </NavLink>
               </NavItem>
                 <NavItem>

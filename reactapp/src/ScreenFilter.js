@@ -229,6 +229,7 @@ if(goToResultScreen==true){
         {InputSubCat}
       </div>
       {buttonValidation}
+      
     </div>
 
 

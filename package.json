@@ -3,13 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "heroku-postbuild": "cd reactapp && npm install && npm run build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "node ./bin/www",
+    "heroku-postbuild": "cd reactapp && npm install && npm run build"
   },
-  "proxy": "http://localhost:3000",
   "dependencies": {
     "body-parser": "^1.19.0",
     "cloudinary": "^1.23.0",

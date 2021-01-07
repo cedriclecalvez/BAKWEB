@@ -40,7 +40,7 @@ const NavsBar = (props) => {
               </Button>
               <NavItem>
                 <NavLink>
-                  <Link style={{color: 'rgba(214, 162, 232,1.0)',marginRight:60}} to="/Accueil">Acceuil</Link>
+                  <Link style={{color: 'rgba(214, 162, 232,1.0)',marginRight:60}} to="/Accueil">Accueil</Link>
                 </NavLink>
               </NavItem>
                 <NavItem>

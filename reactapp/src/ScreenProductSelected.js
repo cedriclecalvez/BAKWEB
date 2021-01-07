@@ -18,9 +18,9 @@ import {Redirect} from 'react-router-dom'
   return (
     <div>
     <Navigation/>
-    <CardDeck>
-      <Card>
-        <CardImg top width="400px" src="../logo192.png" alt="Card image cap" />
+    <CardDeck style={{width:400,marginLeft:30, marginTop:30}}>
+      <Card >
+        <CardImg top width="100px" src="../20201211_071442.jpg" alt="Card image cap" />
         <CardBody>
           <CardTitle tag="h5">{props.product.title}</CardTitle>
           <CardSubtitle tag="h6" className="mb-2 text-muted">{props.product.subcategory}</CardSubtitle>

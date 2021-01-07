@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from 'react';
-import { ListGroup, ListGroupItem } from 'reactstrap';
+import { Col, ListGroup, ListGroupItem, Row } from 'reactstrap';
 import { connect } from 'react-redux';
 import Navigation from './Component/navbar'
 import './App.css';
@@ -25,14 +25,19 @@ function ScreenUserInfo(props){
   return (
     <div>
     <Navigation/>
+    <Row>
+      <Col xs="12" lg="4" xl={{ span: 6, offset: 3 }}>
       <div id='information'>
         <ListGroup>
+        <h2>Informations de ton profil</h2>
           <ListGroupItem>{userInfo.email}</ListGroupItem>
           <ListGroupItem>{userInfo.address}</ListGroupItem>
           <ListGroupItem>{userInfo.city}</ListGroupItem>
           <ListGroupItem>{userInfo.postalCode}</ListGroupItem>
         </ListGroup>
       </div>
+      </Col>
+      </Row>
     </div>
   );
 }

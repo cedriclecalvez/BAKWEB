@@ -12,6 +12,7 @@
   
 }
 #sellScreen{
+  width: 60%;
   margin-top: 25px;
   margin-left: 30vh;
   margin-right: 30vh; 
@@ -43,8 +44,9 @@
 }
 #information{
   margin-top:20px;
-  margin-left:20px;
-  margin-right:20px
+  margin-left:30px;
+  margin-right:20px;
+  width: 400px;
 }
 
 

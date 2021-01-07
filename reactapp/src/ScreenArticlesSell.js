@@ -1,7 +1,7 @@
 
 import Navigation from './Component/navbar'
 import React,{useEffect,useState} from 'react'
-import {Card, CardText, CardBody, CardImg,CardTitle, CardSubtitle,Button,Col,Row} from 'reactstrap';
+import {Container,Card, CardText, CardBody, CardImg,CardTitle, CardSubtitle,Button,Col,Row} from 'reactstrap';
 import { connect } from 'react-redux';
 
 function ScreenArticlesSell({token}) {
@@ -23,7 +23,7 @@ function ScreenArticlesSell({token}) {
     return (
       <Col xs="12" lg="6" xl="4">
         <Card>
-          <CardImg top width="100%" src="../logo192.png" alt="Card image cap" />
+          <CardImg top width="100%" src="../20201211_071442.jpg" alt="Card image cap" />
           <CardBody>
             <CardTitle tag="h5">{e.title}</CardTitle>
             <CardSubtitle tag="h6" className="mb-2 text-muted">{e.price}</CardSubtitle>
@@ -39,10 +39,12 @@ function ScreenArticlesSell({token}) {
   return (
     <div>
       <Navigation/>
-      <h1>Articles en ventes</h1>
-      <Row>
+      <Container fluid style={{width:"80%"}}>
+          <h1>Mes articles en ventes</h1>
+        <Row>
           {sellProduct}
-      </Row>
+        </Row>
+      </Container>
     </div>
   );
 }

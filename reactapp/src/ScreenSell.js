@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { InputGroup, InputGroupAddon, InputGroupText, Input, Button } from 'reactstrap';
+import { InputGroup, InputGroupAddon, InputGroupText, Input, Button, Row, Col } from 'reactstrap';
 import Navigation from './Component/navbar'
 import './App.css';
 import { connect } from 'react-redux';
@@ -131,7 +131,9 @@ function ScreenSell (props) {
     <div>
 
       <Navigation/>
-
+      <Row>
+      <Col xs="12" lg="4" xl={{ span: 6, offset: 3 }}>
+      <h4 className='titleRow'>Crée ton annonce</h4>
       <div id='sellScreen'>
         <p>{optionSubCat}</p>
         <InputGroup className='inputSell'>
@@ -196,6 +198,8 @@ function ScreenSell (props) {
       </Input>
           <Button outline color="secondary" onClick={() => { handleClick();setIsValidated(true) }} >Mettre en vente</Button>
       </div>
+      </Col>
+      </Row>
     </div> 
   )
 }

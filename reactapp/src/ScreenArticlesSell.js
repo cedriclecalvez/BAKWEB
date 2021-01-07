@@ -26,7 +26,7 @@ function ScreenArticlesSell({token}) {
           <CardImg top width="100%" src="../20201211_071442.jpg" alt="Card image cap" />
           <CardBody>
             <CardTitle tag="h5">{e.title}</CardTitle>
-            <CardSubtitle tag="h6" className="mb-2 text-muted">{e.price}</CardSubtitle>
+            <CardSubtitle tag="h6" className="mb-2 text-muted">{e.price}€</CardSubtitle>
             <CardText>{e.description}</CardText>
             <Button>Voir l'article</Button>
           </CardBody>
@@ -40,7 +40,7 @@ function ScreenArticlesSell({token}) {
     <div>
       <Navigation/>
       <Container fluid style={{width:"80%"}}>
-          <h1>Mes articles en ventes</h1>
+          <h1>Mes articles en vente</h1>
         <Row>
           {sellProduct}
         </Row>

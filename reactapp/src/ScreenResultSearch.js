@@ -27,7 +27,7 @@ function ScreenResultSearch(props) {
         <CardImg top width="200%" src="../20201211_071442.jpg" alt="Card image cap" />
         <CardBody>
           <CardTitle tag="h5">{e.title}</CardTitle>
-          <CardSubtitle tag="h6" className="mb-2 text-muted">{e.price}</CardSubtitle>
+          <CardSubtitle tag="h6" className="mb-2 text-muted">{e.price}€</CardSubtitle>
           <CardText>{e.description}</CardText>
           <Button>Voir l'article</Button>
         </CardBody>

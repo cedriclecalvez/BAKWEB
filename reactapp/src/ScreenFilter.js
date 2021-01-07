@@ -112,29 +112,29 @@ import { Redirect } from 'react-router-dom';
 
   var validationButton
 
-let InputSubCat='';
-let optionSubCat='';
-let buttonValidation='';
-if(DisplaySubCat!='')
-   { 
- 
-    let optionSubCat= DisplaySubCat.map((e,i) => {
-    return (<option> {e.subcategory}</option>)
-})
+  let InputSubCat='';
+  let optionSubCat='';
+  let buttonValidation='';
+  if(DisplaySubCat!='')
+    { 
+  
+      let optionSubCat= DisplaySubCat.map((e,i) => {
+      return (<option> {e.subcategory}</option>)
+  })
 
-InputSubCat = <Input type="select" name="select" onChange={(e) => {setSubCatName(e.target.value)}} className='inputSell'>
-                 {optionSubCat}
-              </Input>
+  InputSubCat = <Input type="select" name="select" onChange={(e) => {setSubCatName(e.target.value)}} className='inputSell'>
+                  {optionSubCat}
+                </Input>
 
-buttonValidation=<div className='buttonSearch'><Button
-className='buttonFilter'
-title='Rechercher'
-onClick={() =>{props.onSubCatSelected(subCatName);setGoToResultScreen(true)}}
- >Rechercher</Button></div>
-}
-if(goToResultScreen==true){
-  return <Redirect to='/Resultat'/>
-}
+  buttonValidation=<div className='buttonSearch'><Button
+  className='buttonFilter'
+  title='Rechercher'
+  onClick={() =>{props.onSubCatSelected(subCatName);setGoToResultScreen(true)}}
+  >Rechercher</Button></div>
+  }
+  if(goToResultScreen==true){
+    return <Redirect to='/Resultat'/>
+  }
 
   return (
     <div>

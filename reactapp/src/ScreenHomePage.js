@@ -26,7 +26,7 @@ function ScreenHomePage({token,onSubmitproduct}) {
   let allCardProduct= productList.map((e,i)=>{
     return (
       <Col xs="12" lg="4" xl="3">
-        <Card>
+        <Card style={{marginTop:20}}>
           <CardImg top width="100%" src="../20201211_071442.jpg" alt="Card image cap" />
           <CardBody>
             <CardTitle tag="h5">{e.title}</CardTitle>

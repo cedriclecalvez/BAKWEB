@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
 import {Button,Row} from 'reactstrap'
 import {Redirect} from 'react-router-dom'
-import { Col,Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import {Container,Col,Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import Jumbo from './Component/Jumbotron';
 import {connect} from 'react-redux'
 import './App.css';
 
@@ -76,14 +77,12 @@ if(isConnect==true){
 
 return (
     <div id='signInUp'>
-    
+    <Jumbo/>
      {/* Partie Sign In */}
+     <Container>
     <Row>
-      <Col xs='12' md='6'>
-    {/* <div className='inAndUp'>
-     <div className='Sign'> */}
-      
-        <p>Connection</p>
+      <Col xs='12' md='6'>  
+        <h2>Connection</h2>
           <Form>
             <FormGroup row>
               <Label for="exampleEmail" sm={6}>Email</Label>
@@ -104,14 +103,14 @@ return (
               </Col>
             </FormGroup>
           </Form>
-          <Button onClick={() => { handleClickSignIn() }} className='buttonFilter'> Me connecter
+          <Button onClick={() => { handleClickSignIn() }} className='buttonFilterSign'> Me connecter
           </Button>
           <p>{isNotConnectSignIn}</p>
  
          {/* Partie Sign Up */}
         </Col>
         <Col xs='12' md='6'>
-          <p >Créaction de compte</p>
+          <h2 >Créaction de compte</h2>
           <Form>
           <FormGroup row>
             <Label  sm={6}>Nom</Label>
@@ -169,12 +168,13 @@ return (
           </FormGroup>
         </Form>
 
-        <Button className='buttonFilter' onClick={() => { handleClickSignUp() }}>Créer un compte
+        <Button className='buttonFilterSign' onClick={() => { handleClickSignUp() }}>Créer un compte
         </Button>
         <p>{isNotConnectSignUp}</p>
      
       </Col>
       </Row>
+      </Container>
     </div>
   )
 }

@@ -9,6 +9,8 @@ function ScreenResultSearch(props) {
 
   const[productList,setProductList]=useState([])
 
+// RECUPERER LES ARTICLES CORRESPONDANT A LA RECHERCHE VIA LES FILTRES PROVENANT DU STORE
+
   useEffect(() => {
     const findProducts = async () => {
       const data = await fetch(`articles/filter-articles?subcat=${props.subcat}`)
@@ -50,6 +52,7 @@ function ScreenResultSearch(props) {
   );
 }
 
+// RECUPERATION ET UTILISATION DE LA SOUS CATEGORIE ENVOYER DEPUIS SCREENFILTER
 
 function mapStateToProps(state) {
   return {subcat:state.subcat}}

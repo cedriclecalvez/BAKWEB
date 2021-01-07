@@ -6,6 +6,7 @@ import {
 } from 'reactstrap';
 import { connect } from 'react-redux';
 
+// PAS ENCORE TERMINE EN DEV
 
 function ScreenArticlesBought(props) {
 

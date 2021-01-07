@@ -8,6 +8,8 @@ function ScreenArticlesSell({token}) {
 
   const[productList,setProductList]=useState([])
 
+// RECUPERATION DES ARTICLES MIS EN VENTE PAR LE VENDEUR A L'INITIALISATION
+
   useEffect(() => {
     const findProducts = async () => {
       const data = await fetch(`articles/get-article-by-seller?SellerToken=${token}`)
@@ -18,6 +20,8 @@ function ScreenArticlesSell({token}) {
   },[])
 
   console.log(productList);
+
+  // MISE EN PLACE DES ANNONCES AVEC IMAGE EN DUR
 
   let sellProduct= productList.map((e,i)=>{
     return (
@@ -49,6 +53,7 @@ function ScreenArticlesSell({token}) {
   );
 }
 
+// RECUPERATION ET UTILISATION DU TOKEN DU VENDEUR
 
 function mapStateToProps(state) {
   return {token:state.token}}

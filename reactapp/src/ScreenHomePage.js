@@ -7,10 +7,12 @@ import Jumbo from './Component/Jumbotron';
 import { connect } from 'react-redux';
 
 
-function ScreenHomePage({token,onSubmitproduct}) {
+function ScreenHomePage({onSubmitproduct}) {
 
   const[productList,setProductList]=useState([])
   const [goToProduct,setGoToProduct]=useState(false)
+
+// RECUPERER TOUS LES ARTICLES ENCORE EN VENTE A L'INITIALISATION DE L'ACCUEIL
 
   useEffect(() => {
     const findProducts = async () => {
@@ -22,6 +24,8 @@ function ScreenHomePage({token,onSubmitproduct}) {
   },[])
 
   console.log(productList);
+
+// MISE EN PLACE DES ANNONCES AVEC IMAGE EN DUR
 
   let allCardProduct= productList.map((e,i)=>{
     return (
@@ -56,9 +60,8 @@ function ScreenHomePage({token,onSubmitproduct}) {
   );
 }
 
-function mapStateToProps(state) {
-  return {token:state.token}
-}
+// ENVOIE DU PRODUIT CHOISIT DANS LE STORE
+
 function mapDispatchToProps(dispatch) {
   return {
     onSubmitproduct: function (product) {
@@ -68,6 +71,6 @@ function mapDispatchToProps(dispatch) {
 }
 
 export default connect(
-mapStateToProps,
+null,
 mapDispatchToProps
 )(ScreenHomePage)

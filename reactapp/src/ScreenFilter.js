@@ -150,7 +150,7 @@ import { Redirect } from 'react-router-dom';
             setColorButton3(false);
             setColorButton4(false);
             setColorButton5(false);
-            setColorButton6(false)
+            setColorButton6(false);
           }}
         >Se déplacer</Button>
 
@@ -164,7 +164,7 @@ import { Redirect } from 'react-router-dom';
             setColorButton3(false);
             setColorButton4(false);
             setColorButton5(false);
-            setColorButton6(false)
+            setColorButton6(false);
           }}
         >S'habiller</Button>
       </div>
@@ -193,7 +193,7 @@ import { Redirect } from 'react-router-dom';
             setColorButton2(false);
             setColorButton3(false);
             setColorButton5(false);
-            setColorButton6(false)
+            setColorButton6(false);
           }}
         >Dormir</Button>
       </div>
@@ -221,13 +221,14 @@ import { Redirect } from 'react-router-dom';
             setColorButton3(false);
             setColorButton4(false);
             setColorButton5(false);
-            
           }}
         >Autre</Button>
       </div>
+
       <div class='inputRow'>
         {InputSubCat}
       </div>
+
       {buttonValidation}
       
     </div>
@@ -236,7 +237,7 @@ import { Redirect } from 'react-router-dom';
   );
 }
 
-
+// ENVOIE DE SOUS CATEGORIES DANS LE STORE
 
 function mapDispatchToProps(dispatch) {
   return {

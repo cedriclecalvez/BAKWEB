@@ -31,14 +31,14 @@ function ScreenSell (props) {
       body: `title=${title}&description=${desc}&brand=${brand}&price=${price}&age=${age}&category=${catName}&subcategory=${subCatName}&state=${selectedValueState}&sellerToken=${props.token}`
     });
     const dataAnnonce = await dataArticle.json()
-    // setIsValidated(dataAnnonce.result)
-    // console.log("dataArticle-----------------------------",dataArticle)
-    // console.log("dataAnnonce---------------------------",dataAnnonce)
+    
   }
 
   if(isValidated==true){
   return  <Redirect to ='/Ventes'/>
   }
+
+  // CREATION DES CATEGORIES
 
   var subCat1 = [
     { subcategory: "Sièges Auto" },
@@ -143,16 +143,14 @@ function ScreenSell (props) {
           <Input placeholder="Nom de l'article" 
           onChange={(e) => setTitle(e.target.value)}
           />
-
-          </InputGroup>
-          <InputGroup className='inputSell'>
+        </InputGroup>
+        <InputGroup className='inputSell'>
           <InputGroupAddon addonType="prepend">
             <InputGroupText></InputGroupText>
           </InputGroupAddon>
           <Input placeholder="Description" 
           onChange={(e) => setDesc(e.target.value)}
           />
-
         </InputGroup>
         <InputGroup className='inputSell'>
           <InputGroupAddon addonType="prepend">
@@ -162,7 +160,6 @@ function ScreenSell (props) {
           onChange={(e) => setBrand(e.target.value)}
           />
         </InputGroup>
-
         <InputGroup className='inputSell'>
           <InputGroupAddon addonType="prepend">
             <InputGroupText></InputGroupText>
@@ -171,7 +168,6 @@ function ScreenSell (props) {
           onChange={(e) => setPrice(e.target.value)}
           />
         </InputGroup>
-
         <InputGroup className='inputSell'>
           <InputGroupAddon addonType="prepend">
             <InputGroupText></InputGroupText>
@@ -188,15 +184,16 @@ function ScreenSell (props) {
             <option>Dormir</option>
             <option>Manger</option>
             <option>Se baigner</option>
-      </Input>
+        </Input>
           {InputSubCat}
-          <Input style={{color: 'rgba(214, 162, 232,1.0)'}} type="select" name="select" onChange={(e) => {setSelectedValueState(e.target.value);setSelectedCatName(true)}} className='inputSell' >
+        <Input style={{color: 'rgba(214, 162, 232,1.0)'}} type="select" name="select" onChange={(e) => {setSelectedValueState(e.target.value);setSelectedCatName(true)}} className='inputSell' >
             <option>-Choisir un état</option>
             <option>Neuf</option>
             <option>Bon état</option>
             <option>Etat d'usage</option>
-      </Input>
-          <Button outline color="secondary" onClick={() => { handleClick();setIsValidated(true) }} >Mettre en vente</Button>
+        </Input>
+        
+        <Button outline color="secondary" onClick={() => { handleClick();setIsValidated(true) }} >Mettre en vente</Button>
       </div>
       </Col>
       </Row>

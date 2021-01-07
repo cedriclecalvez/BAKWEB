@@ -29,30 +29,29 @@ const NavsBar = (props) => {
         </NavbarBrand>        
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
-
           <Nav className="mr-auto" navbar>
             <Button outline color="secondary" style={{marginRight:60}}size="sm">
-                <NavItem>
-                  <NavLink>
-                    <Link  to='/' style={{color: 'rgba(214, 162, 232,1.0)'}}>S'inscrire | Se connecter</Link>
-                  </NavLink>
-                </NavItem>
-              </Button>
               <NavItem>
                 <NavLink>
-                  <Link style={{color: 'rgba(214, 162, 232,1.0)',marginRight:60}} to="/Accueil">Accueil</Link>
+                  <Link  to='/' style={{color: 'rgba(214, 162, 232,1.0)'}}>S'inscrire | Se connecter</Link>
                 </NavLink>
               </NavItem>
-                <NavItem>
-                  <NavLink> 
-                    <Link style={{color: 'rgba(214, 162, 232,1.0)', marginRight:60}} to='/Recherche'>Rechercher des articles</Link>
-                  </NavLink>
-                </NavItem>
-                <NavItem>
-                  <NavLink>
-                    <Link style={{color: 'rgba(214, 162, 232,1.0)',marginRight:60}} to='/Vendre'>Vends tes articles</Link>
-                  </NavLink>
-                </NavItem>            
+            </Button>
+            <NavItem>
+              <NavLink>
+                <Link style={{color: 'rgba(214, 162, 232,1.0)',marginRight:60}} to="/Accueil">Accueil</Link>
+              </NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink> 
+                <Link style={{color: 'rgba(214, 162, 232,1.0)', marginRight:60}} to='/Recherche'>Rechercher des articles</Link>
+              </NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink>
+                <Link style={{color: 'rgba(214, 162, 232,1.0)',marginRight:60}} to='/Vendre'>Vends tes articles</Link>
+              </NavLink>
+            </NavItem>            
               
 
               <UncontrolledDropdown nav inNavbar>
@@ -81,6 +80,7 @@ const NavsBar = (props) => {
                   </DropdownItem>
                 </DropdownMenu>
               </UncontrolledDropdown>
+              
             </Nav>
           <NavbarText style={{color: 'rgba(214, 162, 232,1.0)'}}>Babies and Kids</NavbarText>
         </Collapse>

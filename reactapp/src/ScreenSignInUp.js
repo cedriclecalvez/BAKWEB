@@ -25,7 +25,8 @@ function ScreenSignInUp({onSubmitToken}) {
   const [tokenIsSubmited, setTokenIsSubmited] = useState(false)
   
 
-  // FUNCTION TO CLEAN ALL INPUTS
+  // VIDER TOUS LES INPUTS APRES LE CLIC
+
   function clickToCleanSignIn() {
     setSignInEmail("");
     setSignInPassword("");
@@ -56,6 +57,8 @@ function ScreenSignInUp({onSubmitToken}) {
     
   }
  
+// INSCRIPTION ET ENVOIE DES INFOS POUR BDD
+
   var handleClickSignUp = async () => {
 
     const dataUsers = await fetch(`/users/sign-up`, {
@@ -76,10 +79,13 @@ if(isConnect==true){
 }
 
 return (
-    <div id='signInUp'>
+
+  <div id='signInUp'>
     <Jumbo/>
-     {/* Partie Sign In */}
-     <Container>
+
+    {/* Partie Sign In */}
+
+    <Container>
     <Row>
       <Col xs='12' md='6'>  
         <h2>Connection</h2>
@@ -103,11 +109,14 @@ return (
               </Col>
             </FormGroup>
           </Form>
+
           <Button onClick={() => { handleClickSignIn() }} className='buttonFilterSign'> Me connecter
           </Button>
+
           <p>{isNotConnectSignIn}</p>
  
-         {/* Partie Sign Up */}
+        {/* Partie Sign Up */}
+
         </Col>
         <Col xs='12' md='6'>
           <h2 >Créaction de compte</h2>
@@ -170,16 +179,17 @@ return (
 
         <Button className='buttonFilterSign' onClick={() => { handleClickSignUp() }}>Créer un compte
         </Button>
+
         <p>{isNotConnectSignUp}</p>
      
       </Col>
       </Row>
-      </Container>
-    </div>
-  )
+    </Container>
+  </div>
+)
 }
 
-
+// ENVOIE DU TOKEN DE L'UTILISATEUR VERS LE STORE LORS DE L'INSCRIPTION
 
 function mapDispatchToProps(dispatch) {
   return {

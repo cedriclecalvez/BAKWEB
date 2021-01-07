@@ -11,6 +11,8 @@ function ScreenUserInfo(props){
 
   const[userInfo, setUserInfo]=useState('');
 
+  // RECUPERATION DU BACKEND LES INFOS CORRESPONDANT A L'UTILIASATEUR GRACE AU TOKEN RECUPERE DU STORE 
+
   useEffect(() => {
     const findUser = async () => {
       const rawData = await fetch(`users/display-profile?token=${props.token}`)
@@ -42,6 +44,7 @@ function ScreenUserInfo(props){
   );
 }
 
+// RECUPERATION ET UTILISATION DU TOKEN DEJA STOCKE AFIN DE CONNAITRE L'UTILISATEUR
 
 function mapStateToProps(state) {
   return {token:state.token}

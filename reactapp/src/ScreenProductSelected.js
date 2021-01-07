@@ -5,7 +5,7 @@ import Navigation from './Component/navbar'
 import { connect } from 'react-redux';
 import {Redirect} from 'react-router-dom'
 
-
+// AFFICHAGE DE L'ARTICLE SELECTIONNE GRACE AU PRODUIT STOCKE DANS LE STORE
 
   function ScreenProductSelected (props) {
     console.log(props.product)

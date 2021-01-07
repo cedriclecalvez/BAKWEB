@@ -4,6 +4,8 @@ import Navigation from './Component/navbar'
 import { connect } from 'react-redux';
 import {Redirect} from 'react-router-dom'
 
+// PAS ENCORE TERMINE EN DEV
+
 function ScreenBasket (props) {
     const [buyer, setBuyer] = useState({});
     const [firstName, setFirstName] = useState('')

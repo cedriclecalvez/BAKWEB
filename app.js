@@ -10,6 +10,8 @@ var usersRouter = require('./routes/users');
 var articlesRouter = require('./routes/articles');
 var ordersRouter = require('./routes/orders');
 
+const PORT = process.env.PORT || '8080'
+app = express();
 
 
 require('./models/connection')
@@ -20,6 +22,7 @@ app.use(fileUpload());
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+app.set("port",PORT);
 
 app.use(logger('dev'));
 app.use(express.json());

@@ -6,7 +6,7 @@
     "@testing-library/jest-dom": "^5.11.6",
     "@testing-library/react": "^11.2.2",
     "@testing-library/user-event": "^12.6.0",
-    "antd": "^4.9.4",
+    "antd": "^4.10.0",
     "bootstrap": "^4.5.3",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
@@ -23,15 +23,13 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  
- "proxy": "http://localhost:3000",
+  "proxy": "http://localhost:3000",
   "eslintConfig": {
     "extends": [
       "react-app",
       "react-app/jest"
     ]
   },
-  
   "browserslist": {
     "production": [
       ">0.2%",

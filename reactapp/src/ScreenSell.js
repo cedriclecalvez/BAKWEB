@@ -5,6 +5,97 @@ import './App.css';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom'
 
+
+// TRAVAIL SUR UPLOAD PHOTO
+import 'antd/dist/antd.css';
+import { Upload, Modal } from 'antd';
+import { PlusOutlined } from '@ant-design/icons';
+
+function getBase64(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = error => reject(error);
+  });
+}
+class PicturesWall extends React.Component {
+  state = {
+    previewVisible: false,
+    previewImage: '',
+    previewTitle: '',
+    fileList: [
+    
+      {
+        uid: '-4',
+        name: 'image.png',
+        status: 'done',
+        url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+      },
+      {
+        uid: '-xxx',
+        percent: 50,
+        name: 'image.png',
+        status: 'uploading',
+        url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+      },
+      {
+        uid: '-5',
+        name: 'image.png',
+        status: 'error',
+      },
+    ],
+  };
+
+  handleCancel = () => this.setState({ previewVisible: false });
+
+  handlePreview = async file => {
+    if (!file.url && !file.preview) {
+      file.preview = await getBase64(file.originFileObj);
+    }
+
+    this.setState({
+      previewImage: file.url || file.preview,
+      previewVisible: true,
+      previewTitle: file.name || file.url.substring(file.url.lastIndexOf('/') + 1),
+    });
+  };
+
+  handleChange = ({ fileList }) => this.setState({ fileList });
+
+  render() {
+    const { previewVisible, previewImage, fileList, previewTitle } = this.state;
+    const uploadButton = (
+      <div>
+        <PlusOutlined />
+        <div style={{ marginTop: 8 }}>Upload</div>
+      </div>
+    );
+    return (
+      <>
+        <Upload
+          action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+          listType="picture-card"
+          fileList={fileList}
+          onPreview={this.handlePreview}
+          onChange={this.handleChange}
+        >
+          {fileList.length >= 8 ? null : uploadButton}
+        </Upload>
+        <Modal
+          visible={previewVisible}
+          title={previewTitle}
+          footer={null}
+          onCancel={this.handleCancel}
+        >
+          <img alt="example" style={{ width: '100%' }} src={previewImage} />
+        </Modal>
+      </>
+    );
+  }
+}
+
+
 function ScreenSell (props) {
 
   console.log('token from sellscreen',props.token,'-----');
@@ -132,71 +223,74 @@ function ScreenSell (props) {
 
       <Navigation/>
       <Row>
-      <Col xs="12" lg="4" xl={{ span: 6, offset: 3 }}>
-      <h4 className='titleRow'>Crée ton annonce</h4>
-      <div id='sellScreen'>
-        <p>{optionSubCat}</p>
-        <InputGroup className='inputSell'>
-          <InputGroupAddon addonType="prepend">
-            <InputGroupText></InputGroupText>
-          </InputGroupAddon>
-          <Input placeholder="Nom de l'article" 
-          onChange={(e) => setTitle(e.target.value)}
-          />
-        </InputGroup>
-        <InputGroup className='inputSell'>
-          <InputGroupAddon addonType="prepend">
-            <InputGroupText></InputGroupText>
-          </InputGroupAddon>
-          <Input placeholder="Description" 
-          onChange={(e) => setDesc(e.target.value)}
-          />
-        </InputGroup>
-        <InputGroup className='inputSell'>
-          <InputGroupAddon addonType="prepend">
-            <InputGroupText></InputGroupText>
-          </InputGroupAddon>
-          <Input placeholder="Marque" 
-          onChange={(e) => setBrand(e.target.value)}
-          />
-        </InputGroup>
-        <InputGroup className='inputSell'>
-          <InputGroupAddon addonType="prepend">
-            <InputGroupText></InputGroupText>
-          </InputGroupAddon>
-          <Input placeholder="Prix" 
-          onChange={(e) => setPrice(e.target.value)}
-          />
-        </InputGroup>
-        <InputGroup className='inputSell'>
-          <InputGroupAddon addonType="prepend">
-            <InputGroupText></InputGroupText>
-          </InputGroupAddon>
-          <Input placeholder="Age" 
-          onChange={(e) => setAge(e.target.value)}
-          />
-        </InputGroup>
+        <Col xs="12" lg="4" xl={{ span: 6, offset: 3 }}>
+          <h4 className='titleRow'>Crée ton annonce</h4>          
+          <PicturesWall/>          
+          <div id='sellScreen'>
+            <p>{optionSubCat}</p>
+            <InputGroup className='inputSell'>
+              <InputGroupAddon addonType="prepend">
+                <InputGroupText></InputGroupText>
+              </InputGroupAddon>
+              <Input placeholder="Nom de l'article" 
+              onChange={(e) => setTitle(e.target.value)}
+              />
+            </InputGroup>
+            <InputGroup className='inputSell'>
+              <InputGroupAddon addonType="prepend">
+                <InputGroupText></InputGroupText>
+              </InputGroupAddon>
+              <Input placeholder="Description" 
+              onChange={(e) => setDesc(e.target.value)}
+              />
+            </InputGroup>
+            <InputGroup className='inputSell'>
+              <InputGroupAddon addonType="prepend">
+                <InputGroupText></InputGroupText>
+              </InputGroupAddon>
+              <Input placeholder="Marque" 
+              onChange={(e) => setBrand(e.target.value)}
+              />
+            </InputGroup>
+            <InputGroup className='inputSell'>
+              <InputGroupAddon addonType="prepend">
+                <InputGroupText></InputGroupText>
+              </InputGroupAddon>
+              <Input placeholder="Prix" 
+              onChange={(e) => setPrice(e.target.value)}
+              />
+            </InputGroup>
+            <InputGroup className='inputSell'>
+              <InputGroupAddon addonType="prepend">
+                <InputGroupText></InputGroupText>
+              </InputGroupAddon>
+              <Input placeholder="Age" 
+              onChange={(e) => setAge(e.target.value)}
+              />
+            </InputGroup>
 
-        <Input style={{color: 'rgba(214, 162, 232,1.0)'}} type="select" name="select" onChange={(e) => {setCatName(e.target.value);setSelectedCatName(true)}} className='inputSell' >
-            <option>-Choisir une catégorie</option>
-            <option>Se déplacer</option>
-            <option>S'habiller</option>
-            <option>Dormir</option>
-            <option>Manger</option>
-            <option>Se baigner</option>
-        </Input>
-          {InputSubCat}
-        <Input style={{color: 'rgba(214, 162, 232,1.0)'}} type="select" name="select" onChange={(e) => {setSelectedValueState(e.target.value);setSelectedCatName(true)}} className='inputSell' >
-            <option>-Choisir un état</option>
-            <option>Neuf</option>
-            <option>Bon état</option>
-            <option>Etat d'usage</option>
-        </Input>
-        
-        <Button outline color="secondary" onClick={() => { handleClick();setIsValidated(true) }} >Mettre en vente</Button>
-      </div>
-      </Col>
+            <Input style={{color: 'rgba(214, 162, 232,1.0)'}} type="select" name="select" onChange={(e) => {setCatName(e.target.value);setSelectedCatName(true)}} className='inputSell' >
+                <option>-Choisir une catégorie</option>
+                <option>Se déplacer</option>
+                <option>S'habiller</option>
+                <option>Dormir</option>
+                <option>Manger</option>
+                <option>Se baigner</option>
+            </Input>
+              {InputSubCat}
+            <Input style={{color: 'rgba(214, 162, 232,1.0)'}} type="select" name="select" onChange={(e) => {setSelectedValueState(e.target.value);setSelectedCatName(true)}} className='inputSell' >
+                <option>-Choisir un état</option>
+                <option>Neuf</option>
+                <option>Bon état</option>
+                <option>Etat d'usage</option>
+            </Input>
+            
+            <Button outline color="secondary" onClick={() => { handleClick();setIsValidated(true) }} >Mettre en vente</Button>
+
+          </div>
+        </Col>
       </Row>
+      
     </div> 
   )
 }

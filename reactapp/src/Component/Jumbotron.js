@@ -1,18 +1,19 @@
 import React from 'react';
-import {Container,Card,CardImg,CardImgOverlay,CardTitle } from 'reactstrap';
+import {Container,Card,CardImg,CardImgOverlay,CardTitle,CardSubtitle } from 'reactstrap';
 
 const Jumbo = (props) => {
   return (
-    <div>
+    <div>      
         <Container fluid >
             <Card inverse  >
                 <CardImg width="100%" src="../igor-starkov-8u-OaI3MZrc-unsplash(2).jpg" alt="Card image cap" />
-                <CardImgOverlay>
-                  <h1 className="display-3">Babies And Kids</h1>
-                  <CardTitle tag="h5">Le meilleur pour vos enfants à tout petit prix</CardTitle>
+                <CardImgOverlay style={{positionItem:"flex-start"}}>
+                  {/* <h1>Babies And Kids</h1> */}
+                  <CardTitle  tag="h1">Babies And Kids</CardTitle>
+                  <CardSubtitle tag="h5">Le meilleur pour vos enfants à tout petit prix</CardSubtitle>
                 </CardImgOverlay>
             </Card>
-        </Container>
+        </Container>       
     </div>
   );
 };

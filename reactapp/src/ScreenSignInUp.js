@@ -14,7 +14,7 @@ function ScreenSignInUp({onSubmitToken}) {
   const [signInPassword, setSignInPassword] = useState('')
   const [signUpEmail, setSignUpEmail] = useState('')
   const [signUpPassword, setSignUpPassword] = useState('')
-  const [name,setName]=useState('');
+  const [firstName,setFirstName]=useState('');
   const [address,setAddress]=useState('')
   const [city,setCity]=useState('');
   const [postalCode,setPostalCode]=useState('')
@@ -34,7 +34,7 @@ function ScreenSignInUp({onSubmitToken}) {
   function clickToCleanSignUp() {
     setSignInEmail("");
     setSignInPassword("");
-    setName("");
+    setFirstName("");
     setAddress("")
     setCity("");
     setPostalCode("")
@@ -64,7 +64,7 @@ function ScreenSignInUp({onSubmitToken}) {
     const dataUsers = await fetch(`/users/sign-up`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: `Name=${name}&email=${signUpEmail}&password=${signUpPassword}&address=${address}&postalCode=${postalCode}&city=${city}`
+      body: `firstName=${firstName}&email=${signUpEmail}&password=${signUpPassword}&address=${address}&postalCode=${postalCode}&city=${city}`
     });
 
     const dataConsumers = await dataUsers.json()
@@ -124,9 +124,9 @@ return (
           <FormGroup row>
             <Label  sm={6}>Nom</Label>
             <Col sm={12}>
-              <Input type="name" name="name"  placeholder="Nom" 
-              onChange={(e) => setName(e.target.value)} 
-              value={name}
+              <Input type="firstName" name="firstName"  placeholder="firstName" 
+              onChange={(e) => setFirstName(e.target.value)} 
+              value={firstName}
               />
             </Col>
           </FormGroup>
